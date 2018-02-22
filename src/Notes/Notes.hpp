@@ -35,10 +35,14 @@ public:
     Note Sharp() const;
     Note Flat() const;
 
+public:
+    constexpr bool operator==(const Note &rhs) const
+    {
+        return pitch == rhs.pitch;
+    }
+
 private:
     enum Pitch pitch;
-
-    Note(enum Pitch pitch, std::string name);
 };
 
 constexpr Note C(C_PITCH);
