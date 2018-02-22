@@ -4,63 +4,117 @@
 #include <string>
 #include <map>
 
-enum Pitch
-{
-    C_PITCH = 0,
-    CSharp_PITCH,
-    DFlat_PITCH,
-    D_PITCH,
-    DSHARP_PITCH,
-    EFlat_PITCH,
-    E_PITCH,
-    F_PITCH,
-    FSHARP_PITCH,
-    GFLAT_PITCH,
-    G_PITCH,
-    GSHARP_PITCH,
-    AFLAT_PITCH,
-    A_PITCH,
-    ASHARP_PITCH,
-    BFLAT_PITCH,
-    B_PITCH
-};
-
 class Note
 {
 public:
-    constexpr Note(enum Pitch pitch) : pitch(pitch) {}
+
+    enum Pitch
+    {
+        C_PITCH,
+        CSharp_PITCH,
+        DFlat_PITCH,
+        D_PITCH,
+        DSHARP_PITCH,
+        EFlat_PITCH,
+        E_PITCH,
+        F_PITCH,
+        FSHARP_PITCH,
+        GFLAT_PITCH,
+        G_PITCH,
+        GSHARP_PITCH,
+        AFLAT_PITCH,
+        A_PITCH,
+        ASHARP_PITCH,
+        BFLAT_PITCH,
+        B_PITCH
+    };
+
+    constexpr explicit Note(enum Pitch pitch) noexcept : pitch(pitch) {}
+
+    constexpr bool operator==(const Note &otherNote) const
+    {
+        return pitch == otherNote.pitch;
+    }
+
+    constexpr int measureAbsoluteSemitones(const Note &otherNote) const
+    {
+        const int octave = 12;
+        const int unisson = 0;
+
+        auto distance = otherNote.Pitch() - Pitch();
+
+        return distance < unisson
+               ? octave - distance * -1
+               : distance;
+    }
 
     std::string Name() const;
-    Pitch Pitch() const;
     Note Sharp() const;
     Note Flat() const;
 
-public:
-    constexpr bool operator==(const Note &rhs) const
-    {
-        return pitch == rhs.pitch;
-    }
-
 private:
-    enum Pitch pitch;
+    const enum Pitch pitch;
+
+    constexpr int Pitch() const
+    {
+        switch (pitch)
+        {
+            case C_PITCH:
+                return 0;
+            case CSharp_PITCH:
+                return 1;
+            case DFlat_PITCH:
+                return 1;
+            case D_PITCH:
+                return 2;
+            case DSHARP_PITCH:
+                return 3;
+            case EFlat_PITCH:
+                return 3;
+            case E_PITCH:
+                return 4;
+            case F_PITCH:
+                return 5;
+            case FSHARP_PITCH:
+                return 6;
+            case GFLAT_PITCH:
+                return 6;
+            case G_PITCH:
+                return 7;
+            case GSHARP_PITCH:
+                return 8;
+            case AFLAT_PITCH:
+                return 8;
+            case A_PITCH:
+                return 9;
+            case ASHARP_PITCH:
+                return 10;
+            case BFLAT_PITCH:
+                return 10;
+            case B_PITCH:
+                return 11;
+            default:
+                return 0;
+        }
+    }
 };
 
-constexpr Note C(C_PITCH);
-constexpr Note CSharp(CSharp_PITCH);
-constexpr Note DFlat(DFlat_PITCH);
-constexpr Note D(D_PITCH);
-constexpr Note DSharp(DSHARP_PITCH);
-constexpr Note EFlat(EFlat_PITCH);
-constexpr Note E(E_PITCH);
-constexpr Note F(F_PITCH);
-constexpr Note FSharp(FSHARP_PITCH);
-constexpr Note GFlat(GFLAT_PITCH);
-constexpr Note G(G_PITCH);
-constexpr Note GSharp(GSHARP_PITCH);
-constexpr Note AFlat(AFLAT_PITCH);
-constexpr Note A(A_PITCH);
-constexpr Note ASharp(ASHARP_PITCH);
-constexpr Note BFlat(BFLAT_PITCH);
-constexpr Note B(B_PITCH);
+constexpr Note C(Note::C_PITCH);
+constexpr Note CSharp(Note::CSharp_PITCH);
+constexpr Note DFlat(Note::DFlat_PITCH);
+constexpr Note D(Note::D_PITCH);
+constexpr Note DSharp(Note::DSHARP_PITCH);
+constexpr Note EFlat(Note::EFlat_PITCH);
+constexpr Note E(Note::E_PITCH);
+constexpr Note F(Note::F_PITCH);
+constexpr Note FSharp(Note::FSHARP_PITCH);
+constexpr Note GFlat(Note::GFLAT_PITCH);
+constexpr Note G(Note::G_PITCH);
+constexpr Note GSharp(Note::GSHARP_PITCH);
+constexpr Note AFlat(Note::AFLAT_PITCH);
+constexpr Note A(Note::A_PITCH);
+constexpr Note ASharp(Note::ASHARP_PITCH);
+constexpr Note BFlat(Note::BFLAT_PITCH);
+constexpr Note B(Note::B_PITCH);
 
 #endif //VANEPS_NOTES_H

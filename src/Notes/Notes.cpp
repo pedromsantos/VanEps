@@ -43,11 +43,6 @@ std::string Note::Name() const
     }
 }
 
-Pitch Note::Pitch() const
-{
-    return pitch;
-}
-
 Note Note::Sharp() const
 {
     switch (pitch)
