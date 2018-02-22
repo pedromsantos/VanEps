@@ -86,22 +86,22 @@ TEST_CASE("Should be same note after sharpening and flattening a note")
     REQUIRE(B.Sharp().Flat() == B);
 }
 
-TEST_CASE("Should measure semitones distance")
+TEST_CASE("Should measure semitone distance between two notes")
 {
-    REQUIRE(C.measureAbsoluteSemitones(C) == 0);
-    REQUIRE(C.measureAbsoluteSemitones(CSharp) == 1);
-    REQUIRE(C.measureAbsoluteSemitones(DFlat) == 1);
-    REQUIRE(C.measureAbsoluteSemitones(D) == 2);
-    REQUIRE(C.measureAbsoluteSemitones(DSharp) == 3);
-    REQUIRE(C.measureAbsoluteSemitones(EFlat) == 3);
-    REQUIRE(C.measureAbsoluteSemitones(F) == 5);
-    REQUIRE(C.measureAbsoluteSemitones(FSharp) == 6);
-    REQUIRE(C.measureAbsoluteSemitones(GFlat) == 6);
-    REQUIRE(C.measureAbsoluteSemitones(G) == 7);
-    REQUIRE(C.measureAbsoluteSemitones(GSharp) == 8);
-    REQUIRE(C.measureAbsoluteSemitones(AFlat) == 8);
-    REQUIRE(C.measureAbsoluteSemitones(A) == 9);
-    REQUIRE(C.measureAbsoluteSemitones(ASharp) == 10);
-    REQUIRE(C.measureAbsoluteSemitones(BFlat) == 10);
-    REQUIRE(C.measureAbsoluteSemitones(B) == 11);
+    REQUIRE(C.MeasureAbsoluteSemitones(C) == 0);
+    REQUIRE(C.MeasureAbsoluteSemitones(CSharp) == 1);
+    REQUIRE(C.MeasureAbsoluteSemitones(DFlat) == 1);
+    REQUIRE(C.MeasureAbsoluteSemitones(D) == 2);
+    REQUIRE(C.MeasureAbsoluteSemitones(DSharp) == 3);
+    REQUIRE(C.MeasureAbsoluteSemitones(EFlat) == 3);
+    REQUIRE(C.MeasureAbsoluteSemitones(F) == 5);
+    REQUIRE(C.MeasureAbsoluteSemitones(FSharp) == 6);
+    REQUIRE(C.MeasureAbsoluteSemitones(GFlat) == 6);
+    REQUIRE(C.MeasureAbsoluteSemitones(G) == 7);
+    REQUIRE(C.MeasureAbsoluteSemitones(GSharp) == 8);
+    REQUIRE(C.MeasureAbsoluteSemitones(AFlat) == 8);
+    REQUIRE(C.MeasureAbsoluteSemitones(A) == 9);
+    REQUIRE(C.MeasureAbsoluteSemitones(ASharp) == 10);
+    REQUIRE(C.MeasureAbsoluteSemitones(BFlat) == 10);
+    REQUIRE(C.MeasureAbsoluteSemitones(B) == 11);
 }

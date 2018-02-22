@@ -36,7 +36,7 @@ public:
         return pitch == otherNote.pitch;
     }
 
-    constexpr int measureAbsoluteSemitones(const Note &otherNote) const
+    constexpr int MeasureAbsoluteSemitones(const Note &otherNote) const
     {
         const int octave = 12;
         const int unisson = 0;
@@ -48,7 +48,49 @@ public:
                : distance;
     }
 
-    std::string Name() const;
+    constexpr const char* Name() const
+    {
+        switch (pitch)
+        {
+            case C_PITCH:
+                return "C";
+            case CSharp_PITCH:
+                return "C#";
+            case DFlat_PITCH:
+                return "Db";
+            case D_PITCH:
+                return "D";
+            case DSHARP_PITCH:
+                return "D#";
+            case EFlat_PITCH:
+                return "Eb";
+            case E_PITCH:
+                return "E";
+            case F_PITCH:
+                return "F";
+            case FSHARP_PITCH:
+                return "F#";
+            case GFLAT_PITCH:
+                return "Gb";
+            case G_PITCH:
+                return "G";
+            case GSHARP_PITCH:
+                return "G#";
+            case AFLAT_PITCH:
+                return "Ab";
+            case A_PITCH:
+                return "A";
+            case ASHARP_PITCH:
+                return "A#";
+            case BFLAT_PITCH:
+                return "Bb";
+            case B_PITCH:
+                return "B";
+            default:
+                return "";
+        }
+    }
+
     Note Sharp() const;
     Note Flat() const;
 
