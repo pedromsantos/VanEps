@@ -72,3 +72,4 @@ CMakeCache.txt
 /cmake-build-debug
 *.cbp
 CMakeScripts
+.cache/

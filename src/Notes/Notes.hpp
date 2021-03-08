@@ -1,9 +1,6 @@
 #ifndef VANEPS_NOTES_H
 #define VANEPS_NOTES_H
 
-#include <string>
-#include <map>
-
 class Note
 {
 public:
