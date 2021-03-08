@@ -4,23 +4,23 @@
 
 TEST_CASE("Should relate note with its name")
 {
-    REQUIRE(C.Name() == "C");
-    REQUIRE(CSharp.Name() == "C#");
-    REQUIRE(DFlat.Name() == "Db");
-    REQUIRE(D.Name() == "D");
-    REQUIRE(DSharp.Name() == "D#");
-    REQUIRE(EFlat.Name() == "Eb");
-    REQUIRE(E.Name() == "E");
-    REQUIRE(F.Name() == "F");
-    REQUIRE(FSharp.Name() == "F#");
-    REQUIRE(GFlat.Name() == "Gb");
-    REQUIRE(G.Name() == "G");
-    REQUIRE(GSharp.Name() == "G#");
-    REQUIRE(AFlat.Name() == "Ab");
-    REQUIRE(A.Name() == "A");
-    REQUIRE(ASharp.Name() == "A#");
-    REQUIRE(BFlat.Name() == "Bb");
-    REQUIRE(B.Name() == "B");
+    REQUIRE(strcmp(C.Name(), "C"));
+    REQUIRE(strcmp(CSharp.Name(), "C#"));
+    REQUIRE(strcmp(DFlat.Name(), "Db"));
+    REQUIRE(strcmp(D.Name(), "D"));
+    REQUIRE(strcmp(DSharp.Name(), "D#"));
+    REQUIRE(strcmp(EFlat.Name(), "Eb"));
+    REQUIRE(strcmp(E.Name(), "E"));
+    REQUIRE(strcmp(F.Name(), "F"));
+    REQUIRE(strcmp(FSharp.Name(), "F#"));
+    REQUIRE(strcmp(GFlat.Name(), "Gb"));
+    REQUIRE(strcmp(G.Name(), "G"));
+    REQUIRE(strcmp(GSharp.Name(), "G#"));
+    REQUIRE(strcmp(AFlat.Name(), "Ab"));
+    REQUIRE(strcmp(A.Name(), "A"));
+    REQUIRE(strcmp(ASharp.Name(), "A#"));
+    REQUIRE(strcmp(BFlat.Name(), "Bb"));
+    REQUIRE(strcmp(B.Name(), "B"));
 }
 
 TEST_CASE("Should sharp note")
